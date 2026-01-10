@@ -42,12 +42,10 @@ try {
 
   const data = await res.json();
 
-  const { _id: _, ...lastEntryData } = lastEntry || {};
-
   const lastEntryHash = lastEntry
     ? crypto
         .createHash("md5")
-        .update(JSON.stringify(lastEntryData.results))
+        .update(JSON.stringify(lastEntry.results))
         .digest("hex")
     : null;
 
