@@ -66,11 +66,11 @@ app.get("/fetch-data", async (req, res) => {
 
       await collection.insertOne(newEntry);
       console.log("New entry inserted with date:", newEntry.date);
+      res.status(200).send("Data fetch completed. New data inserted.");
     } else {
       console.log("No new data to insert. The latest entry is up to date.");
+      res.status(200).send("Data fetch completed. No new data to insert.");
     }
-
-    res.status(200).send("Data fetch completed.");
   } catch (error) {
     console.error("An error occurred:", error);
     res.status(500).send("An error occurred while fetching data.");
