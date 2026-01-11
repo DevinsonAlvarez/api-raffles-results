@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "dayjs": "^1.11.19",
+    "express": "^5.2.1",
     "mongodb": "^7.0.0"
   }
 }
