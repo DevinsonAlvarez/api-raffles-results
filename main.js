@@ -14,11 +14,11 @@ const client = new MongoClient(uri, {
   },
 });
 
-const date = dayjs().format("YYYY-MM-DD-HH");
-
 const app = express();
 
 app.get("/fetch-data", async (req, res) => {
+  const date = dayjs().format("YYYY-MM-DD-HH");
+
   try {
     await client.connect();
     console.log("Connected to MongoDB");
@@ -64,7 +64,7 @@ app.get("/fetch-data", async (req, res) => {
         results: data,
       };
 
-      await collection.insertOne(newEntry);
+      // await collection.insertOne(newEntry);
       console.log("New entry inserted with date:", newEntry.date);
       res.status(200).send("Data fetch completed. New data inserted.");
     } else {
