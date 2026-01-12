@@ -64,7 +64,7 @@ app.get("/fetch-data", async (req, res) => {
         results: data,
       };
 
-      // await collection.insertOne(newEntry);
+      await collection.insertOne(newEntry);
       console.log("New entry inserted with date:", newEntry.date);
       res.status(200).send("Data fetch completed. New data inserted.");
     } else {
