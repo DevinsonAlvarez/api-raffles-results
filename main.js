@@ -17,7 +17,7 @@ const client = new MongoClient(uri, {
 const app = express();
 
 app.get("/fetch-data", async (req, res) => {
-  const date = dayjs().format("YYYY-MM-DD-HH");
+  const date = dayjs().subtract(4, "hours").format("YYYY-MM-DD-HH");
 
   try {
     await client.connect();
@@ -37,7 +37,7 @@ app.get("/fetch-data", async (req, res) => {
     const results = await fetch("https://appcelmlt.com:6444/resultadostv", {
       headers: {
         tok: "e7f3fe7a42028493652438c8f9766b6d7b849fb2",
-        desde: dayjs().format("YYYYMMDD"),
+        desde: dayjs().subtract(4, "hours").format("YYYYMMDD"),
         usu: "pepo",
       },
     });
